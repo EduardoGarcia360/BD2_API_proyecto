@@ -10,9 +10,9 @@ app.use(cors());
 
 // Configuración de la base de datos Oracle
 const dbConfig = {
-  user: 'EDUARDO',
-  password: '1234',
-  connectString: '192.168.0.50:1521/orcl_DGMGRL'  // Formato: host:port/sid
+  user: 'inventario',
+  password: 'Mariano',
+  connectString: '192.168.56.101:1521/cdb1.world'
 };
 
 // Middleware para parsear el body de las solicitudes
@@ -47,7 +47,7 @@ app.post('/executeSP', async (req, res) => {
         const metaData = resultSet.metaData;
         const rows = await resultSet.getRows();
         await resultSet.close();
-        console.log('metaData', metaData)
+        //console.log('metaData', metaData)
   
       // Formatear los resultados como un arreglo de objetos
       const formattedRows = rows.map(row => {
